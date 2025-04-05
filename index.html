@@ -3,23 +3,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Seedl It</title>
+    <title>Seed It</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="container">
+        <!-- Intro Screen -->
         <div id="intro-screen">
             <input type="text" id="username-input" placeholder="Enter your name">
             <img src="assets/start-button.png" id="start-btn" class="disabled" alt="Start Game">
         </div>
 
+        <!-- Game Screen -->
         <div id="game-screen" style="display: none;">
-            <div id="top-bar">
+            <div id="top-bar" class="floating-box">
                 <span id="player-name">Player: </span>
                 <span id="player-score">Score: 0</span>
             </div>
-            <!-- Game UI will continue here -->
-            <canvas id="game-canvas" width="600" height="800"></canvas>
+
+            <div class="game-layout">
+                <div id="left-sidebar" class="floating-box sidebar">
+                    <p>Left Tools</p>
+                </div>
+
+                <canvas id="game-canvas" width="600" height="800"></canvas>
+
+                <div id="right-sidebar" class="floating-box sidebar">
+                    <p>Combo</p>
+                </div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>

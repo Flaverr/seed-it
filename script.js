@@ -15,9 +15,8 @@ usernameInput.addEventListener('input', () => {
 startBtn.addEventListener('click', () => {
     if (!startBtn.classList.contains('enabled')) return;
     const username = usernameInput.value.trim();
-    localStorage.setItem('seedlItUsername', username);
+    localStorage.setItem('seedItUsername', username);
     playerNameDisplay.textContent = `Player: ${username}`;
     introScreen.style.display = 'none';
     gameScreen.style.display = 'flex';
-    // initGame(); // Placeholder for full game logic
 });
