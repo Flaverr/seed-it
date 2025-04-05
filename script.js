@@ -4,6 +4,9 @@ const startBtn = document.getElementById('start-btn');
 const introScreen = document.getElementById('intro-screen');
 const gameScreen = document.getElementById('game-screen');
 const playerNameDisplay = document.getElementById('player-name');
+const highScoresContainer = document.getElementById('high-scores');
+
+let highScores = [];
 
 usernameInput.addEventListener('input', () => {
     const isValid = usernameInput.value.trim().length > 0;
@@ -20,17 +23,16 @@ startBtn.addEventListener('click', () => {
     introScreen.style.display = 'none';
     gameScreen.style.display = 'flex';
 
-    loadHighScores(); // Load bottom bar content
+    updateHighScores(username, 0);
 });
 
-function loadHighScores() {
-    const list = document.getElementById('high-scores');
-    const sampleScores = [
-        { name: "Leafy", score: 900 },
-        { name: "Sprout", score: 820 },
-        { name: "Bloom", score: 780 },
-        { name: "Pip", score: 740 },
-        { name: "Zest", score: 700 }
-    ];
-    list.innerHTML = sampleScores.map(s => `<li>${s.name}: ${s.score}</li>`).join('');
+function updateHighScores(username, score) {
+    highScores.push({ name: username, score });
+    highScores.sort((a, b) => b.score - a.score);
+    highScores = highScores.slice(0, 5);
+    renderHighScores();
+}
+
+function renderHighScores() {
+    highScoresContainer.innerHTML = highScores.map(s => `<div>${s.name}: ${s.score}</div>`).join('');
 }

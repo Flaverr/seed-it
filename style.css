@@ -3,28 +3,25 @@ body, html {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: #1a1a1a;
+    font-family: 'Raleway', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1a1a1a;
-    font-family: Arial, sans-serif;
 }
 
 #container {
     width: 100%;
-    height: 100%;
     max-width: 1000px;
-    position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
 }
 
 #intro-screen {
     width: 600px;
     height: 800px;
-    background: url('assets/background.jpg') no-repeat center center;
+    background: url('assets/backgrounds/homepage-bg.jpg') no-repeat center center;
     background-size: cover;
     border-radius: 25px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
@@ -33,28 +30,6 @@ body, html {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    padding: 20px;
-}
-
-.intro-bg-placeholder {
-    width: 100%;
-    height: 300px;
-    background-image: url('assets/image-placeholder.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 20px;
-}
-
-.game-bg-placeholder {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: url('assets/image-placeholder.png');
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-    opacity: 0.15;
 }
 
 #username-input {
@@ -84,18 +59,45 @@ body, html {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    position: relative;
+    width: 100%;
 }
 
-#top-bar {
+.game-bg {
+    background-image: url('assets/backgrounds/game-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.2;
+}
+
+#top-bar, #bottom-bar {
     width: 600px;
-    height: 100px;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 18px;
-    background-color: #f5f5f5;
+}
+
+#bottom-bar {
+    flex-direction: column;
+    gap: 10px;
+}
+
+#high-scores {
+    text-align: left;
+    width: 100%;
+    font-weight: 400;
+}
+
+#high-scores div {
+    padding: 2px 0;
 }
 
 .game-layout {
@@ -144,8 +146,6 @@ body, html {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 10px;
-    width: 70px;
 }
 
 #combo-bar {
@@ -177,23 +177,10 @@ body, html {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-#bottom-bar {
-    margin-top: 10px;
-    width: 600px;
-    padding: 10px 20px;
-    text-align: center;
-    background-color: rgba(255,255,255,0.9);
-    border-radius: 20px;
-}
-
 .floating-box {
     background-color: rgba(255,255,255,0.9);
     border-radius: 20px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     backdrop-filter: blur(5px);
     transition: transform 0.3s ease;
-}
-
-.floating-box:hover {
-    transform: translateY(-3px);
 }
