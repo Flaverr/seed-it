@@ -10,27 +10,51 @@
     <div id="container">
         <!-- Intro Screen -->
         <div id="intro-screen">
+            <div class="intro-bg-placeholder"></div>
             <input type="text" id="username-input" placeholder="Enter your name">
             <img src="assets/start-button.png" id="start-btn" class="disabled" alt="Start Game">
         </div>
 
         <!-- Game Screen -->
         <div id="game-screen" style="display: none;">
+            <div class="game-bg-placeholder"></div>
+
             <div id="top-bar" class="floating-box">
                 <span id="player-name">Player: </span>
                 <span id="player-score">Score: 0</span>
             </div>
 
             <div class="game-layout">
-                <div id="left-sidebar" class="floating-box sidebar">
-                    <p>Left Tools</p>
+                <div id="left-sidebar-icons">
+                    <button class="icon-btn" title="Clear a type of fruit">
+                        <img src="assets/icons/supercollateral.png">
+                        <span class="badge">2</span>
+                    </button>
+                    <button class="icon-btn" title="Bonus score + combo fill">
+                        <img src="assets/icons/por.png">
+                        <span class="badge">2</span>
+                    </button>
+                    <button class="icon-btn" title="Drop special bonus seed">
+                        <img src="assets/icons/supercdp.png">
+                        <span class="badge">2</span>
+                    </button>
                 </div>
 
                 <canvas id="game-canvas" width="600" height="800"></canvas>
 
-                <div id="right-sidebar" class="floating-box sidebar">
-                    <p>Combo</p>
+                <div id="right-combo-bar" class="floating-box">
+                    <div id="combo-bar">
+                        <div id="combo-fill"></div>
+                    </div>
+                    <div id="combo-multiplier">×1</div>
                 </div>
+            </div>
+
+            <div id="bottom-bar" class="floating-box">
+                <h3>Top 5 High Scores</h3>
+                <ul id="high-scores">
+                    <li>Loading...</li>
+                </ul>
             </div>
         </div>
     </div>

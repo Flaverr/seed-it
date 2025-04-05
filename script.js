@@ -19,4 +19,18 @@ startBtn.addEventListener('click', () => {
     playerNameDisplay.textContent = `Player: ${username}`;
     introScreen.style.display = 'none';
     gameScreen.style.display = 'flex';
+
+    loadHighScores(); // Load bottom bar content
 });
+
+function loadHighScores() {
+    const list = document.getElementById('high-scores');
+    const sampleScores = [
+        { name: "Leafy", score: 900 },
+        { name: "Sprout", score: 820 },
+        { name: "Bloom", score: 780 },
+        { name: "Pip", score: 740 },
+        { name: "Zest", score: 700 }
+    ];
+    list.innerHTML = sampleScores.map(s => `<li>${s.name}: ${s.score}</li>`).join('');
+}
