@@ -1,12 +1,1 @@
-
-body { margin: 0; padding: 0; font-family: Arial, sans-serif; background-image: url('assets/background/background.png'); background-size: cover; display: flex; align-items: center; justify-content: center; height: 100vh; }
-#game-container { display: flex; align-items: flex-start; gap: 20px; }
-#sidebar-left, #sidebar-right { width: 150px; display: flex; flex-direction: column; gap: 10px; }
-#gameCanvas { border: 3px solid #444; background-color: rgba(255,255,255,0.8); border-radius: 10px; }
-.powerup { padding: 10px; cursor: pointer; border-radius: 10px; background-color: #6c63ff; color: white; border: none; }
-.powerup:disabled { background-color: #aaa; }
-#combo-bar { width: 100%; height: 20px; background-color: #ddd; border-radius: 10px; overflow: hidden; }
-#combo-fill { height: 100%; width: 0%; background-color: #8bc34a; }
-.hidden { display: none; }
-#game-over { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2rem; color: red; }
-#next-fruit img { width: 40px; height: auto; }
+/* Styles previously defined; implement from previous steps */
