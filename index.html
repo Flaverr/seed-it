@@ -3,51 +3,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Seedl It - Full Game</title>
+    <title>Seedl It</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Homepage Container -->
-    <div id="homepage-container">
-        <h2>Enter your name, Seedling:</h2>
-        <input type="text" id="username-input" placeholder="Your Name">
-        <button id="start-btn" disabled>Start Growing!</button>
-    </div>
-
-    <!-- Game Container -->
-    <div id="game-container" style="display:none;">
-        <div id="top-bar">
-            <span id="player-name">Player: Seedling</span>
-            <span id="player-score">Score: 0</span>
+    <div id="container">
+        <div id="intro-screen">
+            <input type="text" id="username-input" placeholder="Enter your name">
+            <img src="assets/start-button.png" id="start-btn" class="disabled" alt="Start Game">
         </div>
 
-        <div id="main-game-ui">
-            <div id="left-sidebar">
-                <button class="powerup" id="supercollateral" title="Clears one type of fruit">
-                    <img src="assets/icons/supercollateral.png">
-                    <span class="badge">2</span>
-                </button>
-                <button class="powerup" id="por" title="Instant combo & bonus points">
-                    <img src="assets/icons/por.png">
-                    <span class="badge">2</span>
-                </button>
-                <button class="powerup" id="supercdp" title="Drops bonus fruit">
-                    <img src="assets/icons/supercdp.png">
-                    <span class="badge">2</span>
-                </button>
+        <div id="game-screen" style="display: none;">
+            <div id="top-bar">
+                <span id="player-name">Player: </span>
+                <span id="player-score">Score: 0</span>
             </div>
-
+            <!-- Game UI will continue here -->
             <canvas id="game-canvas" width="600" height="800"></canvas>
-
-            <div id="right-sidebar">
-                <div id="combo-bar-container">
-                    <div id="combo-bar-fill"></div>
-                </div>
-                <span id="combo-multiplier">×1</span>
-            </div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
