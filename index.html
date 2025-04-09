@@ -2,60 +2,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Seed It</title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Fruit Merge Game</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="container">
-        <!-- Intro Screen -->
-        <div id="intro-screen">
-            <input type="text" id="username-input" placeholder="Enter your name">
-            <img src="assets/start-button.png" id="start-btn" class="disabled" alt="Start Game">
-        </div>
-
-        <!-- Game Screen -->
-        <div id="game-screen" style="display: none;">
-            <div class="game-bg"></div>
-
-            <div id="top-bar" class="floating-box">
-                <span id="player-name">Player: </span>
-                <span id="player-score">Score: 0</span>
-            </div>
-
-            <div class="game-layout">
-                <div id="left-sidebar-icons">
-                    <button class="icon-btn" title="💠 Supercollateral: Wipe one fruit type from the board. Clear your path to bloom.">
-                        <img src="assets/icons/supercollateral.png">
-                        <span class="badge">2</span>
-                    </button>
-                    <button class="icon-btn" title="✨ Proof-of-Repayment: Boost your score instantly and turbocharge your combo.">
-                        <img src="assets/icons/por.png">
-                        <span class="badge">2</span>
-                    </button>
-                    <button class="icon-btn" title="🌱 SuperCDP: Drop a high-level bonus seed to chain massive merges.">
-                        <img src="assets/icons/supercdp.png">
-                        <span class="badge">2</span>
-                    </button>
-                </div>
-
-                <canvas id="game-canvas" width="600" height="800"></canvas>
-
-                <div id="right-combo-bar">
-                    <div id="combo-bar">
-                        <div id="combo-fill"></div>
-                    </div>
-                    <div id="combo-multiplier">×1</div>
-                </div>
-            </div>
-
-            <div id="bottom-bar" class="floating-box">
-                <h3>Top 5 High Scores</h3>
-                <div id="high-scores"></div>
-            </div>
-        </div>
+  <div id="overlay-container"></div>
+  <div id="score-box">
+    <span id="score-label">Score:</span> <span id="score">0</span>
+    &nbsp;&nbsp;
+    <span id="high-score-label">High Score:</span> <span id="high-score">0</span>
+  </div>
+  <div id="game-wrapper">
+    
+    <div id="left-icons">
+      <div class="power" >
+        <img src="assets/icon_0.png" alt="SC" />
+        <span class="badge">2x</span>
+      </div>
+      <div class="power" >
+        <img src="assets/icon_1.png" alt="PoR" />
+        <span class="badge">2x</span>
+      </div>
+      <div class="power" >
+        <img src="assets/icon_2.png" alt="CDP" />
+        <span class="badge">2x</span>
+      </div>
     </div>
-    <script src="script.js"></script>
+    
+    <div id="game-container">
+      <canvas id="game-canvas" width="480" height="640"></canvas>
+    </div>
+    <div id="right-panel">
+      <div id="next-label">NEXT</div>
+      
+<div id="next-fruit"><img id="next-fruit-img" src="assets/fruit_0.png" alt="Next Fruit" style="max-height: 70px;"></div>
+  <div id="combo-label">Combo</div>
+  <div id="combo-bar"><div id="combo-fill"></div></div>
+  </div>
+
+      
+      </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+
+<div id="game-over" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000a; color:white; font-family:Raleway; justify-content:center; align-items:center; flex-direction:column; z-index:99;">
+  <div style="font-size:24px;">Game Over</div>
+  <div>Your Score: <span id="final-score">0</span></div>
+  <button onclick="restartGame()" style="margin-top:20px; padding:10px 20px;">Play Again</button>
+</div>
+
+  
+<div id="bottom-section">
+<div id="evolution-tracker">
+  <img src="assets/fruit_0.png" class="evolution-icon"/>
+<img src="assets/locked.png" class="evolution-icon" id="lock-1"/>
+<img src="assets/locked.png" class="evolution-icon" id="lock-2"/>
+<img src="assets/locked.png" class="evolution-icon" id="lock-3"/>
+<img src="assets/locked.png" class="evolution-icon" id="lock-4"/>
+<img src="assets/locked.png" class="evolution-icon" id="lock-5"/>
+<img src="assets/locked.png" class="evolution-icon" id="lock-6"/>
+<img src="assets/locked.png" class="evolution-icon" id="lock-7"/>
+<img src="assets/locked.png" class="evolution-icon" id="lock-8"/>
+<img src="assets/locked.png" class="evolution-icon" id="lock-9"/>
+<img src="assets/locked.png" class="evolution-icon" id="lock-10"/>
+<img src="assets/locked.png" class="evolution-icon" id="lock-11"/>
+<img src="assets/locked.png" class="evolution-icon" id="lock-12"/>
+<img src="assets/locked.png" class="evolution-icon" id="lock-13"/>
+</div>
+<div id="power-descriptions">
+    <div class="power-desc"><img src="assets/icon_0.png"/><div><strong>Supercollateral:</strong> Clears a fruit type</div></div>
+    <div class="power-desc"><img src="assets/icon_1.png"/><div><strong>Proof-of-Repayment:</strong> Combo bonus for 10s</div></div>
+    <div class="power-desc"><img src="assets/icon_2.png"/><div><strong>SuperCDP:</strong> Level up a fruit</div></div>
+    </div>
+  </div>
+
+<div id="power-msg" style="position:absolute; top:60px; left:50%; transform:translateX(-50%);
+  background:#333; color:#fff; font-family:Raleway; padding:8px 16px; border-radius:8px;
+  display:none; z-index:999;">Click a fruit</div>
 </body>
 </html>
